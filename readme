@@ -1,0 +1,27 @@
+Klasör Açıklamaları :
+
+1. Config 
+    a. sabit ayarlar/tanımlar 
+    b. google json dosyası
+    c. uml şeması
+2. Data
+    a. Googleden gelen xlsx dosyaları
+3. Models
+    a. basvuru, mentor, mulakatlar ve admin yönetim pencerelerinin işlendiği py dosyaları
+    b. menulerin işleme şekillerini içeren py dosyaları
+4. Sources 
+    a. google bağlantı py leri
+    b. mail py dosyaları 
+5. Ui_windows
+    a. tüm qt designer tasarımları buraya dosyaadi.ui olarak kayıt edilecek
+    Dosya isimleri aşağıdaki gibi olacak
+        1. login.ui
+        2. user-menu.ui
+        3. admin-menu.ui
+        4. basvurular.ui
+        5. mentor-gor.ui
+        6. mulakatlar.ui
+        7. admin-act.ui
+6. Images
+    a. logo
+    b. iconlar
