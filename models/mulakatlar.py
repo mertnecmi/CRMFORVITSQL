@@ -17,11 +17,22 @@ class Mulakatlar(QMainWindow):
         self.mulakatlar = query(sorgu)
         kolon = len(self.mulakatlar[0])
         self.tableWidget.setColumnCount(kolon)
-
-        temiz_liste = []
-        temiz_liste.append("Kursiyer")
-        temiz_liste.append("Proje Gönderme T.")
-        temiz_liste.append("Proje Geliş T.")
+        if self.session.tall == "EN":
+            temiz_liste = ['Trainee name',"Project Subm.Date", 'Project Arrival Date']
+            self.tumkayitlar_btn.setText("All Records")
+            self.projesikomt_btn.setText("Project Arrivals")
+            self.projenietkomt_btn.setText("Project Dont Arrivals")
+            self.search_inp.setPlaceholderText("enter text to search...")
+        elif self.session.tall == "TR":
+            temiz_liste = ["Kursiyer","Proje Gönderme T.","Proje Geliş T." ]
+            self.exit_btn.setText("Kapat")
+        elif self.session.tall == "NL":
+            temiz_liste = ["Cursisten","Indieningdatum project","Aankomstdatum project" ]
+            self.search_inp.setPlaceholderText("voer tekst in om te zoeken...")
+            self.tumkayitlar_btn.setText("Alle Record")
+            self.projesikomt_btn.setText("Project Kwamen")
+            self.projenietkomt_btn.setText("Project Niet Kwamen")  
+            self.exit_btn.setText("Dichtbij")
 
         self.tableWidget.setHorizontalHeaderLabels(temiz_liste)
         header = self.tableWidget.horizontalHeader()

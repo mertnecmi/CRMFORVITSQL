@@ -12,11 +12,26 @@ class MentorGor(QMainWindow):
         self.setFixedWidth(1196)
         self.setFixedHeight(721)
         self.myfn = MyAttr()
+        if self.session.tall == "EN":
+            self.tumkayitlar_btn.setText("All Records")
+            self.search_inp.setPlaceholderText("enter text to search...")
+            self.exit_btn.setText("Close")
+            basliklar = ["Date","First-Last NAme", "Mentor","IT Inform.","Opinion","Comments"]
+        if self.session.tall == "TR":
+            self.tumkayitlar_btn.setText("Tüm Kayıtlar")
+            self.search_inp.setPlaceholderText("aranacak metin giriniz...")
+            self.exit_btn.setText("Kapat")
+            basliklar = ["Tarih","İsim Soyisim", "Mentor","IT Bilgisi","Düşünce","Yorumlar"]
+        if self.session.tall == "NL":
+            self.tumkayitlar_btn.setText("Alle Records")
+            self.search_inp.setPlaceholderText("voer tekst in om te zoeken...")
+            self.exit_btn.setText("Dichtbij")
+            basliklar = ["Datum","Naam Achternaam", "Mentor","IT Kennis","Gedachte","Opmerkingen"]
 
-        #self.mentordata = self.myfn.read_xlsx("data/Mentor.xlsx")
+
         sorgu = "select gorusmetarihi, kursiyerid, mentoradsoyad, vitprojesinekatilabilirmi, dusunce, yorumlar from mentortablosu"
         self.mentordata = query(sorgu)
-        basliklar = ["Tarih","İsim Soyisim", "Mentor","IT Bilgisi","Düşünce","Yorumlar"]
+        
         self.tableWidget.setHorizontalHeaderLabels(basliklar)    
         header = self.tableWidget.horizontalHeader()
         header.setSectionsClickable(False)   
@@ -27,7 +42,7 @@ class MentorGor(QMainWindow):
         self.tableWidget.setColumnWidth(4, 250)
         self.tableWidget.setColumnWidth(5, 250)
         self.cmbboxdoldur()
-        print(self.mentordata)
+
 
         
         self.comboBox.activated.connect(self.on_item_activated)

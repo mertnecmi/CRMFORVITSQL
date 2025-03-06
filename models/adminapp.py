@@ -21,7 +21,23 @@ class AdminApp(QMainWindow):
         self.tableWidget.setColumnWidth(1, 100)
         self.tableWidget.setColumnWidth(2, 150)
 
-        header=["ETKİNLİK ADI","ETKİNLİK ZAMANI", "ORGANİZATOR MAİL","KATILIMCI MAİL"]
+        if self.session.tall == "EN":
+            self.email_btn.setText("E-Mail Send")
+            self.event_btn.setText("Events")
+            header=["Event Name","Event Time", "Organizer email","Participant Email"]
+            self.exit_btn.setText("Close")
+        elif self.session.tall == "TR":
+            self.email_btn.setText("E-Mail Gönder")
+            self.event_btn.setText("Etkinlikler")
+            header=["ETKİNLİK ADI","ETKİNLİK ZAMANI", "ORGANİZATOR MAİL","KATILIMCI MAİL"]
+            self.exit_btn.setText("Kapat")
+        elif self.session.tall == "NL":
+            self.email_btn.setText("E-Mail Sturen")
+            self.event_btn.setText("Evenementen")
+            header=["Event Naam","Event Tijd", "Organisator e-mail","Deelnemer e-mail"]
+            self.exit_btn.setText("Dichtbij")
+            
+
         self.tableWidget.setHorizontalHeaderLabels(header)
 
         self.exit_btn.clicked.connect(self.exit)

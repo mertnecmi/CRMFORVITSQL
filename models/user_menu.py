@@ -15,7 +15,24 @@ class UserMenu(QMainWindow):
         self.setFixedWidth(643)
         self.setFixedHeight(481)
 
+        if self.session.tall == "EN":
+            self.basvurular_btn.setText("Applications")
+            self.mulakatlar_btn.setText("Interviews")
+            self.mentorgo_btn.setText("Mentor Interviews")
 
+
+        elif self.session.tall == "TR":
+            self.basvurular_btn.setText("Başvurular")
+            self.mulakatlar_btn.setText("Mülakatlar")
+            self.mentorgo_btn.setText("Mentör Görüşmesi")
+
+
+        elif self.session.tall == "NL":
+            self.basvurular_btn.setText("Toepassingen")
+            self.mulakatlar_btn.setText("Interviews")
+            self.mentorgo_btn.setText("Mentorgesprek")
+
+            
 
         self.exit_btn.clicked.connect(self.exit)
         self.basvurular_btn.clicked.connect(self.basvurular)

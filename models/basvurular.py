@@ -41,6 +41,8 @@ class Basvurular(QMainWindow):
         header = self.tableWidget.horizontalHeader()
         header.setSectionsClickable(False)  # Başlıkların tıklanabilirliğini devre dışı bırakıyoruz
         self.tableWidget.setRowCount(0) 
+        if self.session.tall == "EN":
+            self.definementmeet_btn.setText("Identified mentor interviews")
 
         self.definementmeet_btn.clicked.connect(self.tanimlananMentorGor)
         self.tgeenmgorusmeleri_btn.clicked.connect(self.tgeenmgorusmeleri)
