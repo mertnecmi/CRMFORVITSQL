@@ -162,3 +162,4 @@ cython_debug/
 # Google API JSON dosyaları
 config/credentials.json
 config/vit-project-450321-8da140d2ff54.json
+token.pickle
