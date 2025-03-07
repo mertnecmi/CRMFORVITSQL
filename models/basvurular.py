@@ -43,6 +43,36 @@ class Basvurular(QMainWindow):
         self.tableWidget.setRowCount(0) 
         if self.session.tall == "EN":
             self.definementmeet_btn.setText("Identified mentor interviews")
+            self.tgeenmgorusmeleri_btn.setText("Unidentified mentor interviews")
+            self.samefilter_btn.setText("Filtered application")
+            self.oncekivit_btn.setText("Previous VIT control")
+            self.same_btn.setText("Duplicate Record")
+            self.different_btn.setText("Different Record")
+            self.tumkayitlar_btn.setText("All Record")
+            self.search_inp.setPlaceholderText("enter text to search...")
+            self.exit_btn.setText("Close")
+      
+        elif self.session.tall == "NL":
+            self.definementmeet_btn.setText("Geïdentificeerde mentorinterviews")
+            self.tgeenmgorusmeleri_btn.setText("Ongeïdentificeerde mentorinterviews")
+            self.samefilter_btn.setText("Gefilterde aanvraag")
+            self.oncekivit_btn.setText("Eerdere VIT-controle")
+            self.same_btn.setText("Duplicaatrecord")
+            self.different_btn.setText("Verschillend record")
+            self.tumkayitlar_btn.setText("Alle Records")
+            self.search_inp.setPlaceholderText("voer tekst in om te zoeken...")
+            self.exit_btn.setText("Dichtbij")
+
+        elif self.session.tall == "TR":
+            self.definementmeet_btn.setText("Tanımlanan Mentor Görüşmeleri")
+            self.tgeenmgorusmeleri_btn.setText("Tanımlanmayan Mentor Görüşmeleri")
+            self.samefilter_btn.setText("Filtrelenmiş Kayıtlar")
+            self.oncekivit_btn.setText("Önceki VIT-Kontrol")
+            self.same_btn.setText("Mükerrer Kayıtlar")
+            self.different_btn.setText("Farklı Kayıtlar")
+            self.tumkayitlar_btn.setText("Tüm Kayıtlar")
+            self.exit_btn.setText("Çıkış")
+            self.search_inp.setPlaceholderText("aranacak metin giriniz...")
 
         self.definementmeet_btn.clicked.connect(self.tanimlananMentorGor)
         self.tgeenmgorusmeleri_btn.clicked.connect(self.tgeenmgorusmeleri)
@@ -56,16 +86,14 @@ class Basvurular(QMainWindow):
         
         # arama inputuna birşy girildiğinde
         self.search_inp.textChanged.connect(self.filter_search_table)
-        
-        
-        
-
         self.exit_btn.clicked.connect(self.exit)
 
 
     def filter_defferent_rows(self):
         self.tableWidget.clearContents()
         self.tablo_listele( "farkli")
+        if self.session.tall == "EN":
+            self.label_5.setText("Different Record")
         self.label_5.setText("FARKLI KAYITLAR")
 
 
